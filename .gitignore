@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Julia/bin/Debug
+/Julia/obj/x86/Debug
+*.user
+/Julia.Bluetooth/obj/Debug
+/Julia.Interfaces/obj/Debug
+/Julia.Ui/obj/Debug
+/Julia.Utils/obj/Debug
+/_ReSharper.Julia

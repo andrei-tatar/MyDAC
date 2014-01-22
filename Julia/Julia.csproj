@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35D19F55-9479-4404-87DC-15040CEF9F06}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Julia</RootNamespace>
+    <AssemblyName>Julia</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DebugType>none</DebugType>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Drivers\HardwareCommands.cs" />
+    <Compile Include="Drivers\HardwareService.cs" />
+    <Compile Include="Drivers\MpcWrapper.cs" />
+    <Compile Include="Drivers\PacketStream.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Drivers\FakeMouse.cs" />
+    <Compile Include="Drivers\FakeScreen.cs" />
+    <Compile Include="Drivers\JuliaSound.cs" />
+    <Compile Include="Drivers\Mouse.cs" />
+    <Compile Include="Drivers\Oled.cs" />
+    <Compile Include="Ui\Fonts.cs" />
+    <Compile Include="Ui\Windows\BaseWindow.cs" />
+    <Compile Include="Ui\Windows\Bluetooth\BluetoothWindow.cs" />
+    <Compile Include="Ui\Windows\GoBackWindow.cs" />
+    <Compile Include="Ui\Windows\MainWindow.cs" />
+    <Compile Include="Ui\Windows\MainWindowTime.cs" />
+    <Compile Include="Ui\Windows\MenuWindow.cs" />
+    <Compile Include="Ui\Windows\MusicWindow.cs" />
+    <Compile Include="Ui\Windows\OffWindow.cs" />
+    <Compile Include="Ui\Windows\SettingsWindowManager.cs" />
+    <Compile Include="Ui\Windows\ToggleSetting.cs" />
+    <Compile Include="Ui\Windows\VolumeWindow.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Ui\Windows\IntroWindow.cs" />
+    <Compile Include="Ui\Windows\ValueSetting.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Julia.Bluetooth\Julia.Bluetooth.csproj">
+      <Project>{a4eac9a4-5ff2-40d6-a4d3-dc62b27aca74}</Project>
+      <Name>Julia.Bluetooth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Julia.Ui\Julia.Ui.csproj">
+      <Project>{CA2531AB-E403-430C-85E2-8C2B6E388700}</Project>
+      <Name>Julia.Ui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Julia.Interfaces\Julia.Interfaces.csproj">
+      <Project>{C574D93B-EC3F-4EB4-A8E0-826C4950E4F0}</Project>
+      <Name>Julia.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Julia.Utils\Julia.Utils.csproj">
+      <Project>{6E565244-D56C-4FEC-826F-372F4A98239C}</Project>
+      <Name>Julia.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
