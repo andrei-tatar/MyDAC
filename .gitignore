@@ -10,3 +10,8 @@
 /Julia.Ui/obj/Debug
 /Julia.Utils/obj/Debug
 /_ReSharper.Julia
+/Julia.Bluetooth/bin/Debug
+/Julia.Interfaces/bin/Debug
+/Julia.Ui/bin/Debug
+/Julia.Utils/bin/Debug
+/Julia.v11.suo

@@ -53,7 +53,7 @@ namespace Julia
             }
 
             Sound = new JuliaSound(_hardwareService);
-            WindowManager = new WindowManager(realScreen, _mouse, _hardwareService);
+            WindowManager = new WindowManager(_screen, _mouse, _hardwareService);
         }
 
         ~Program()
