@@ -65,19 +65,21 @@ void USART3_IRQHandler(void)
 	if (USART_GetITStatus(USART3, USART_IT_RXNE) == RESET) return;
 
 	cByte = USART3->DR;
+	
+	if (cByte == packetStart[headerOffset])
+	{
+		if (++headerOffset == 4)
+		{
+			state = STATE_LENGTH_LSB;
+			checksum = 0;
+		}
+	}
+	else
+		headerOffset = 0;
+	
 	switch (state)
 	{
 		case STATE_IDLE:
-			if (cByte == packetStart[headerOffset])
-			{
-				if (++headerOffset == 4)
-				{
-					state = STATE_LENGTH_LSB;
-					checksum = 0;
-				}
-			}
-			else
-				headerOffset = 0;
 			break;
 
 		case STATE_LENGTH_LSB:
