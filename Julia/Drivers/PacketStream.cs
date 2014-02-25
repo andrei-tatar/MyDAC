@@ -50,19 +50,23 @@ namespace Julia
                     if (cData == -1) continue;
 
                     var cByte = (byte)cData;
+
+                    if (cByte == _packetStart[headerOffset])
+                    {
+                        if (++headerOffset == _packetStart.Length)
+                        {
+                            state = State.LengthLsb;
+                            checksum = 0;
+                            headerOffset = 0;
+                            continue;
+                        }
+                    }
+                    else
+                        headerOffset = 0;
+
                     switch (state)
                     {
                         case State.Idle:
-                            if (cByte == _packetStart[headerOffset])
-                            {
-                                if (++headerOffset == _packetStart.Length)
-                                {
-                                    state = State.LengthLsb;
-                                    checksum = 0;
-                                }
-                            }
-                            else
-                                headerOffset = 0;
                             break;
 
                         case State.LengthLsb:

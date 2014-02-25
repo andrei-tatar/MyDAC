@@ -72,6 +72,8 @@ void USART3_IRQHandler(void)
 		{
 			state = STATE_LENGTH_LSB;
 			checksum = 0;
+			headerOffset = 0;
+			return;
 		}
 	}
 	else
